@@ -5,13 +5,14 @@ $(document).ready(function() {
   var source = $('#entry-template').html();
   var template = Handlebars.compile(source);
 
-  var context = { numeri: ''};
+  var context = {numeri: ''};
   var html = template(context);
 
   // Creo un ciclo for per inserire nel container dell'html i 36 quadrati (griglia 6x6)
   for (var i = 0; i < 36; i++) {
     $('.container').append(html);
   }
+
 
 
   // Creo l'evento per il click su ciascun quadrato
