@@ -8,6 +8,7 @@ $(document).ready(function() {
   var context = { numeri: ''};
   var html = template(context);
 
+  // Creo un ciclo for per inserire nel container dell'html i 36 quadrati (griglia 6x6)
   for (var i = 0; i < 36; i++) {
     $('.container').append(html);
   }
@@ -25,7 +26,7 @@ $(document).ready(function() {
       {
         url: 'https://flynn.boolean.careers/exercises/api/random/int',
         method: 'GET',
-        // Creo una funzione per generare un numero random al click sul quadrato
+        // Creo una funzione richiamare un numero random al click sul quadrato
         success: function(randomNumber) {
           var numero = randomNumber.response;
 
@@ -34,17 +35,15 @@ $(document).ready(function() {
 
           // Creo un ciclo if per assegnare il colore in base al valore del numero generato
           if (numero <= 5) {
-            questoNumero.removeClass('yellow');
-            questoNumero.removeClass('green');
+            questoNumero.removeClass('yellow green');
             questoNumero.addClass('yellow');
           } else {
-            questoNumero.removeClass('yellow');
-            questoNumero.removeClass('green');
+            questoNumero.removeClass('yellow green');
             questoNumero.addClass('green');
           }
         },
         error: function(richiesta, stato, errore) {
-          alert('Errore: ' + errore)
+          alert('Si è verificato un errore: ' + errore)
         }
       }
     );
